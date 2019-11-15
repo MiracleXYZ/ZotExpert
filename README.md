@@ -60,13 +60,13 @@ Zotero 是一款免费开源的文献管理软件，但是目前现行的跨平�
 ## JSBox
 
 1. 安装 JSBox；
-2. 下载 `.output/ZotExpert.box` 并分享到 JSBox 进行安装。
+2. 从 [这里](https://github.com/MiracleXYZ/ZotExpert/releases/download/1.0.0/ZotExpert.zip) 下载并分享到 JSBox 进行安装。
 3. 将 `configs/zotconfig.json.backup` 更名为 `zotconfig.json`，并填入所有前面提到的设置项。
 
 ## 快捷指令
 
 1. 将 iOS 升级到 13 或以上；
-2. 通过[这个链接](https://www.icloud.com/shortcuts/e2e72899158a46ad82a0cf8c4b79944d)安装快捷指令，并打开「共享表单」功能。
+2. 通过 [这个链接](https://www.icloud.com/shortcuts/e2e72899158a46ad82a0cf8c4b79944d) 安装快捷指令，并打开「共享表单」功能。
 
 ## Safari
 
