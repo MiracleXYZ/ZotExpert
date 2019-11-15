@@ -20,7 +20,7 @@ var resp = await $http.get({
 var path = resp.data.data.path;
 
 if (path.match('^attachments')) {
-  var relativePath = path.replace('attachments:', '');
+  var relativePath = config.syncedFolder + '/' + path.replace('attachments:', '');
 } else {
   var pathList = path.split("\\");
   var pdfeURL = "";
