@@ -26,7 +26,7 @@ Zotero 是一款免费开源的文献管理软件，但是目前现行的跨平�
 2. 但是，iOS/iPadOS 平台上 PDF **不能直接打开**，需要手动去 PDF Expert 找寻文件位置。
 </details>
 
-基于以上几点，我写了这个 JSBox 脚本，配合 iOS/iPadOS 自带的「快捷指令」，能够在 Safari 打开 Zotero 网页版时，用 PDF Expert 打开相应的 PDF，而且所作标注可以跨平台同步；实际的操作效果如下：
+基于以上几点，我写了这个 iOS/iPadOS 自带的「快捷指令」，能够在 Safari 打开 Zotero 网页版时，用 PDF Expert 打开相应的 PDF，而且所作标注可以跨平台同步；实际的操作效果如下：
 
 ![](./assets/effect.gif)
 
