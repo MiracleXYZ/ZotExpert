@@ -1,5 +1,7 @@
 # ZotExpert - 用 PDF Expert 打开 Zotero 文献
 
+**更新说明**：不需要付费软件 JSBox 啦！只需要 iOS 自带的「快捷指令」即可！
+
 ## 引言
 
 Zotero 是一款免费开源的文献管理软件，但是目前现行的跨平台同步方式都各有缺点，无法满足个人的使用需要：
@@ -42,9 +44,9 @@ Zotero 是一款免费开源的文献管理软件，但是目前现行的跨平�
 ### Zotero 网页端配置
 
 1. 网页端登入 Zotero 账号，进入 Settings 的 Feeds/API 模块；
-2. 记下图中显示在「xxxxxxx」位置的数字，即 `userid`；
+2. 记下图中显示在「xxxxxxx」位置的数字，即**用户 ID**（`userid`）；
     ![](./assets/userid.png)
-3. 点击 Create new private key，一路下一步就行（notes access 也可以开），生成 Key 之后**不要离开页面**，先复制下来，作为 `APIKey`。
+3. 点击 Create new private key，一路下一步就行（notes access 也可以开），生成 Key 之后**不要离开页面**，先复制下来，作为 **API Key**（`APIKey`）。
 
 
 
@@ -53,20 +55,15 @@ Zotero 是一款免费开源的文献管理软件，但是目前现行的跨平�
 1. 在左下角「连接」处添加连接，并绑定你所使用的云盘（如OneDrive）；
 2. 选择附件文件夹（例子中是 ZoteroFiles），点击右下角的「…」，并选择「同步」；
 3. 打开「我的文件」中的「已同步文件夹」，这时应该可以看到刚才选的文件夹已经开始同步了，耐心等待其同步完成即可。
-4. 这里需要记住你刚才设定的**附件文件夹的名字**，即 `syncedFolder`。
+4. 这里需要记住你刚才设定的**附件文件夹的名字**，即**同步文件夹名称**（`syncedFolder`）。
 
 # 脚本安装
-
-## JSBox
-
-1. 安装 JSBox；
-2. 从 [这里](https://github.com/MiracleXYZ/ZotExpert/releases/download/1.0.0/ZotExpert.zip) 下载并分享到 JSBox 进行安装。
-3. 将 `configs/zotconfig.json.backup` 更名为 `zotconfig.json`，并填入所有前面提到的设置项。
 
 ## 快捷指令
 
 1. 将 iOS 升级到 13 或以上；
-2. 通过 [这个链接](https://www.icloud.com/shortcuts/e2e72899158a46ad82a0cf8c4b79944d) 安装快捷指令，并打开「共享表单」功能。
+2. 通过 [这个链接](https://www.icloud.com/shortcuts/2bc50081d84745719faa1fda14bcebe7) 安装快捷指令，并打开「共享表单」功能、允许访问互联网。
+3. 在弹出的问题中，根据之前记下的内容，填写「用户 ID」、「API Key」和「同步文件夹名称」三个问题。
 
 ## Safari
 
