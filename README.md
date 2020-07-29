@@ -1,82 +1,80 @@
-# ZotExpert - 用 PDF Expert 打开 Zotero 文献
+# ZotExpert - Open Zotero Files in PDF Expert
 
-**更新说明**：不需要付费软件 JSBox 啦！只需要 iOS 自带的「快捷指令」即可！
+[简体中文](README_CN.md)
 
-## 引言
+## Introduction
 
-Zotero 是一款免费开源的文献管理软件，但是目前现行的跨平台同步方式都各有缺点，无法满足个人的使用需要：
+Zotero is a free and open source bibliography management software, but the current cross-platform synchronization methods have their shortcomings and cannot meet the needs of individual use.
 
 <details>
-<summary>WebDAV 同步</summary>
+<summary>WebDAV Sync</summary>
 
-1. 文件储存**位置杂乱无序**，同一主题的文献 PDF 无法在文件层面集中在一起，给批量管理带来困难；
-2. iOS/iPadOS 平台上的 PaperShip 年久失修，目前还有一些 PDF 不能打开（报404），即使能打开的也只能在应用内标注，在 PDF Expert 等外部应用标注的结果**无法同步**。
+1. Document storage **locations are disorganized**, and PDFs of documents on the same subject cannot be grouped together at the document level, making batch management difficult.
+2. PaperShip on the iOS/iPadOS platform is in disrepair, there are still some PDFs that can not be opened (reporting 404 errors). Even if you can open it, you can only annotate within the application, and the results of annotation in external applications such as PDF Expert **cannot be synchronized**.
 </details>
 
 <details>
-<summary>Zotero 同步</summary>
+<summary>Zotero Sync</summary>
 
-1. 除了用的是 Zotero 官方存储空间（有些**贵**）以外，缺点与第1条一样。
+1. The drawbacks are the same as article 1, except that it uses the official Zotero storage space (which is somewhat **expensive**).
 </details>
 
 <details>
-<summary>Zotfile 外部存储同步</summary>
+<summary>Zotfile External Storage Sync</summary>
 
-1. 用 Zotfile 插件将 PDF 移到外部文件夹，然后再用 OneDrive 等工具同步，每个分类都在同一个子文件夹中，利于文献归类；
-2. 但是，iOS/iPadOS 平台上 PDF **不能直接打开**，需要手动去 PDF Expert 找寻文件位置。
+1. Use the Zotfile plug-in to move the PDF to an external folder, and then use tools such as OneDrive synchronization -- each category are in the same sub-folder, facilitating the categorization of documents.
+2. However, on iOS/iPadOS platforms, PDFs **cannot be opened directly**, you need to go to PDF Expert to manually locate the file.
 </details>
 
-基于以上几点，我写了这个 iOS/iPadOS 自带的「快捷指令」，能够在 Safari 打开 Zotero 网页版时，用 PDF Expert 打开相应的 PDF，而且所作标注可以跨平台同步；实际的操作效果如下：
+Based on the above, I wrote this iOS/iPadOS shortcut that helps you automatically open the corresponding PDF with Zotero Web Library opened in Safari. Annotations can be synced across platforms. The effect is as follows:
 
 ![](./assets/effect.gif)
 
-## 前提配置
+## Prerequisites
 
-### Zotero 电脑端配置
+### Zotero PC Configuration
 
-1. 有 Zotero 账号，在 Zotero 客户端登入（先不要打开附件同步功能）；
-2. 安装 Zotfile 插件，并将附件设置到 OneDrive 等云同步文件夹下；
+1. Create a Zotero account and log in to the Zotero client (do not turn on the attachment sync feature yet).
+2. Install the Zotfile plugin and set up attachments to a cloud sync folder such as OneDrive.
     ![](./assets/ZotfilePref.png)
-3. 回到 Zotero 的设置，将附件存储到**相对路径**；
+3. Go back to Zotero's settings and store attachments to **relative path**.
     ![](./assets/GeneralPref.jpg)
-4. 重新打开 Zotero 的同步功能（如果你想同步除 PDF 之外的其他资源的话）。
+4. Turn on Zotero's sync feature again (if you want to sync resources other than PDFs).
 
-### Zotero 网页端配置
+### Zotero Web Configuration
 
-1. 网页端登入 Zotero 账号，进入 Settings 的 Feeds/API 模块；
-2. 记下图中显示在「xxxxxxx」位置的数字，即**用户 ID**（`userid`）；
+1. Login to Zotero web app and go to Settings -> Feeds/API.
+2. Make a note of the number shown in the "xxxxxxx" position in the diagram as **user ID** (`userid`).
     ![](./assets/userid.png)
-3. 点击 Create new private key，一路下一步就行（notes access 也可以开），生成 Key 之后**不要离开页面**，先复制下来，作为 **API Key**（`APIKey`）。
+3. Click "Create new private key", go all the way to the next step (notes access can also be opened), after generating the key **don't leave the page**, copy it as **API Key** (`APIKey`).
 
 
+### PDF Expert Configuration
 
-### PDF Expert 配置
+1. Add a connection and bind the cloud drive you are using (e.g. OneDrive) in the bottom left corner at "Connections".
+2. Select the attachment folder (in the example, ZoteroFiles), click on "..." in the bottom right corner, and select "Sync".
+3. Open "Synced Folders" in "My Documents", you should see that the folder you just selected has been synced, just wait patiently until the sync is complete.
+4. Here you need to remember the name of the **attachment folder** you just set up, i.e. the **synced folder name** (`syncedFolder`).
 
-1. 在左下角「连接」处添加连接，并绑定你所使用的云盘（如OneDrive）；
-2. 选择附件文件夹（例子中是 ZoteroFiles），点击右下角的「…」，并选择「同步」；
-3. 打开「我的文件」中的「已同步文件夹」，这时应该可以看到刚才选的文件夹已经开始同步了，耐心等待其同步完成即可。
-4. 这里需要记住你刚才设定的**附件文件夹的名字**，即**同步文件夹名称**（`syncedFolder`）。
+# Script installation
 
-# 脚本安装
+## Shortcut Command
 
-## 快捷指令
-
-1. 将 iOS 升级到 13 或以上；
-2. 通过 [这个链接](https://www.icloud.com/shortcuts/2bc50081d84745719faa1fda14bcebe7) 安装快捷指令，并打开「共享表单」功能、允许访问互联网。
-3. 在弹出的问题中，根据之前记下的内容，填写「用户 ID」、「API Key」和「同步文件夹名称」三个问题。
+1. Upgrading iOS to 13 or above.
+2. Install a shortcut command via [this link](https://www.icloud.com/shortcuts/2bc50081d84745719faa1fda14bcebe7), turn on the "Share Form" function, and allow access to the Internet.
+3. In the question that pops up, fill in "User ID", "API Key", and "Sync Folder Name" based on what you have written down.
 
 ## Safari
 
-1. 打开任意网页，点击右上角分享按钮，滑到最下方「编辑操作」；
-2. 把「ZotExpert」放到你喜欢的位置。
+1. Open any web page, click on the share button in the upper right corner, and slide to the bottom to "Edit Action".
+2. Place "ZotExpert" in your preferred location.
 
+# Instruction
 
-# 使用
-
-1. 用 Safari 打开 Zotero 官网的 My Library，并**切换到新版界面**（右上角 Try the New Web Library Beta）。
-2. 点开任意一篇论文的 Attachments ，分享到 ZotExpert。
+1. Open My Library on the Zotero website in Safari and **switch to the new version** (Try the New Web Library Beta in the top right corner).
+2. Tap Attachments on any paper and share it to ZotExpert.
 3. Enjoy!!
 
-# 其他
+# Others
 
-欢迎 Star, Fork, Issue, PR~
+Please Star, Fork, Issue, PR if you like this repository.
